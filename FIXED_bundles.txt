@@ -1,0 +1,9 @@
+Sequence of item bundles for the benchmark contest (auction node A):
+
+GF CBBA FBCC BA FBA DC CAGA ACDG BDA CGC CF BD DAB EAGB ABAD BACB CDAB AG DAAC DC BDDA AGGA CDG AF ACB ADF CCB DBBD AAGB AA AG BBFA AA AG BEE DA GAB ADBB CDCA FACC BDB BFB BB DDD BBC BGDA ACDB CCA CG GABD AE ADAF AAF GGAA AC DCFG BAB BDB DB EECA ADAC GCB BF BD CB BCBD FDD BB AAG CE CB AA DBAB GBF BBD CA DFB DE AGA DBAD ABCB BBB DAAA CBB DEB CBGG BB EAB BBCC BA AB AB ABD FBD CDA BCCB BBA EBAA BBF AADA
+
+(304 items in 100 bundles of 2, 3, or 4 items.
+
+The distribution of items: A: 77, B: 83, C: 44, D: 46, E: 11, F: 18, G: 25.
+
+The string may be pasted into "auctioneer.xml" into the "presetItems" property.
