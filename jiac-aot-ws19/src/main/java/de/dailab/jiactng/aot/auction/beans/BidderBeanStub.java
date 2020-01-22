@@ -26,6 +26,7 @@ import de.dailab.jiactng.aot.auction.onto.Register;
 import de.dailab.jiactng.aot.auction.onto.StartAuction;
 import de.dailab.jiactng.aot.auction.onto.StartAuctions;
 import de.dailab.jiactng.aot.auction.onto.Wallet;
+import de.dailab.jiactng.aot.auction.onto.InformBuy.BuyType;
 
 /**
  * TODO Implement this class.
@@ -54,8 +55,6 @@ public class BidderBeanStub extends AbstractAgentBean {
 	public void doStart() throws Exception {
 		
 		System.out.println("Start Bidding Agent with ID " + bidderId);
-		System.out.println("GT: " + groupToken);
-		System.out.println("MG: " + messageGroup);
 		
 		//Join Group
 		Action joinGroup = retrieveAction(ICommunicationBean.ACTION_JOIN_GROUP);
@@ -131,12 +130,9 @@ public class BidderBeanStub extends AbstractAgentBean {
 					System.out.println("Register to Meta Auctioneer");
 					register(message.getSender());
 				} else if (payload instanceof InitializeBidder) {
-					/**
-					 * meta auctioneer sends this message including the initial wallet to the 
-					 * bidder and then starts the different auctions for types A,B,C
-					 * 
-					 */
-					getInitializeBidder();
+					InitializeBidder initBidder = (InitializeBidder) message.getPayload();
+					// get wallet, inspect items (optional)
+					wallet = initBidder.getWallet();
 				} else if (payload instanceof StartAuction) {
 					/*
 					 * TODO You will receive your initial "Wallet" from the auctioneer, but
@@ -172,35 +168,42 @@ public class BidderBeanStub extends AbstractAgentBean {
 					 * 
 					 * send to all bidders
 					 */
-					getInformBuy();
+					InformBuy inform = (InformBuy) message.getPayload();
+					if (inform.getType() == BuyType.WON) {
+						synchronized (wallet) {
+							wallet.add(inform.getBundle());
+							wallet.updateCredits(- inform.getPrice());
+						}
+					}
 				} else if (payload instanceof InformSell) {
 					/**
 					 * Inform that item was sold and at which price
 					 * 
 					 * send to all bidders
 					 */
-					getInformSell();
+					
+					InformSell inform = (InformSell) message.getPayload();
+					if (inform.getType() == InformSell.SellType.SOLD) {
+						synchronized (wallet) {
+							wallet.remove(inform.getBundle());
+							wallet.updateCredits(inform.getPrice());
+						}
+					}
 				} else if (payload instanceof EndAuction) {
-					/**
-					 * At the end the Meta Auctioneer will send message who is the winner of the auction and
-					 * their final Wallet
-					 * 
-					 */
-					log.info("Current wallet of the Bidder " + bidderId + " :" + wallet);
+					EndAuction endMsg = (EndAuction) message.getPayload();
+					if (bidderId.equals(endMsg.getWinner())) {
+						log.info("WE WON!  :-)");
+					} else {
+						log.info("WE LOST. :-(");
+					}
+					log.info("Winner's wallet: " + endMsg.getWallet());
+					wallet = null;
 				}				
 			}
 			
 		}
 
-		private void getInformSell() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		private void getInformBuy() {
-			// TODO Auto-generated method stub
-			
-		}
+		
 
 		private void bid() {
 			// TODO Auto-generated method stub
@@ -214,11 +217,6 @@ public class BidderBeanStub extends AbstractAgentBean {
 		}
 
 		private void offer() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		private void getInitializeBidder() {
 			// TODO Auto-generated method stub
 			
 		}
