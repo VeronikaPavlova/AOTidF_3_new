@@ -31,7 +31,7 @@
 					<property name="randomSeed" value="12345" />
 					<property name="secretToken" value="nottheactualsecrettoken" />
 					<property name="numberOfAuctions" value="2" />
-					<property name="auctionStartMinutes" value="15" />
+					<property name="auctionStartMinutes" value="0" />
 				</bean>
 			</list>
 		</property>

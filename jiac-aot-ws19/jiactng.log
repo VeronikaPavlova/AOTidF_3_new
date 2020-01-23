@@ -1,0 +1,472 @@
+2020-01-23 15:18:17,650 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:18:25,150 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:18:32,650 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:18:40,150 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:18:47,651 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:18:47,889 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:18:47,890 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:18:55,150 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:02,651 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:10,151 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:17,651 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:25,151 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:32,652 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:40,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:47,652 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:19:47,920 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:19:47,920 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:19:55,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:02,652 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:10,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:17,652 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:25,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:32,653 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:40,153 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:47,652 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:20:47,930 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:20:47,930 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:20:55,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:02,653 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:10,152 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:17,653 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:25,153 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:32,654 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:40,154 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:47,654 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:21:47,898 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:21:47,898 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:21:55,154 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:02,655 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:10,154 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:17,656 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:25,155 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:32,655 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:40,155 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:47,656 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:22:47,936 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:22:47,940 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:22:55,155 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:02,656 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:10,156 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:17,656 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:25,156 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:32,657 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:40,157 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:47,657 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:23:47,917 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:23:47,918 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:23:55,157 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:02,657 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:10,157 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:17,657 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:25,157 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:32,658 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:40,158 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:47,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:24:47,940 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:24:47,941 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:24:55,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:02,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:10,160 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:17,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:25,160 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:32,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:40,160 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:47,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:25:47,947 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:25:47,948 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:25:55,160 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:02,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:10,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:17,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:25,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:32,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:40,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:47,660 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:26:47,950 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:26:47,950 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:26:55,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:02,660 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:10,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:17,660 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:25,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:32,660 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:40,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:47,659 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:27:47,956 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:27:47,956 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:27:55,159 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:03,562 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:11,063 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:18,563 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:26,063 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:33,564 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:41,064 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:47,960 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:28:47,961 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:28:48,564 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:28:56,065 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:03,564 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:11,065 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:18,564 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:26,065 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:33,565 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:41,066 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:47,965 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:29:47,966 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:29:48,566 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:29:56,066 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:03,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:11,066 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:18,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:26,067 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:33,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:41,067 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:47,969 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:30:47,972 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:30:48,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:30:56,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:03,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:11,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:18,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:26,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:33,567 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:41,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:47,979 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:31:47,980 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:31:48,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:31:56,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:03,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:11,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:18,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:26,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:33,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:41,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:47,986 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:32:47,987 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:32:48,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:32:56,069 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:03,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:11,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:18,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:26,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:33,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:41,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:47,986 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:33:47,987 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:33:48,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:33:56,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:03,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:11,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:18,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:26,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:33,568 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:41,068 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:47,994 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:34:47,995 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:34:48,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:34:56,069 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:03,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:11,069 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:18,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:26,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:33,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:41,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:47,998 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:35:47,998 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:35:48,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:35:56,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:03,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:11,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:18,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:26,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:33,569 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:41,069 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:48,006 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:36:48,007 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:36:48,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:36:56,069 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:03,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:11,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:18,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:26,071 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:33,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:41,071 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:48,012 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:37:48,013 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:37:48,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:37:56,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:03,571 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:11,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:18,570 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:26,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:33,571 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:41,070 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:48,020 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:38:48,021 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:38:48,571 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:38:56,071 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:03,571 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:11,072 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:18,571 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:26,072 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:33,572 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:41,072 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:48,024 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:39:48,025 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:39:48,573 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:39:56,072 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:03,572 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:11,073 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:18,572 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:26,073 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:33,574 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:41,073 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:48,027 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:40:48,028 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:40:48,574 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:40:56,074 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:03,575 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:11,075 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:18,575 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:26,076 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:33,575 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:41,075 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:48,025 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:41:48,025 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:41:48,576 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:41:56,075 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:03,576 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:11,076 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:18,576 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:26,077 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:33,576 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:41,077 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:48,046 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:42:48,047 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:42:48,577 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:42:56,077 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:03,578 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:11,078 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:18,578 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:26,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:33,578 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:41,078 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:48,048 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:43:48,049 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:43:48,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:43:56,078 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:03,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:11,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:18,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:26,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:33,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:41,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:48,048 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:44:48,049 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:44:48,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:44:56,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:03,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:11,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:18,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:26,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:33,580 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:41,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:48,049 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:45:48,050 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:45:48,580 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:45:56,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:03,580 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:11,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:18,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:26,079 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:33,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:41,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:48,051 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:46:48,052 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:46:48,579 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:46:56,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:03,581 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:11,080 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:18,580 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:26,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:33,580 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:41,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:48,052 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:47:48,053 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:47:48,581 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:47:56,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:03,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:11,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:18,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:26,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:33,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:41,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:48,057 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:48:48,058 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:48:48,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:48:56,081 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:03,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:11,083 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:18,582 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:26,083 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:33,583 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:41,083 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:48,062 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:49:48,063 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:49:48,584 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:49:56,084 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:03,585 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:11,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:18,585 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:26,085 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:33,586 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:41,085 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:48,068 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:50:48,069 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:50:48,585 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:50:56,085 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:03,585 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:11,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:18,586 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:26,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:33,587 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:41,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:48,078 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:51:48,079 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:51:48,587 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:51:56,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:03,586 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:11,086 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:18,586 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:26,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:33,586 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:41,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:48,085 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:52:48,086 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:52:48,587 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:52:56,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:03,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:11,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:18,587 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:26,088 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:33,587 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:41,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:48,094 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:53:48,094 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:53:48,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:53:56,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:03,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:11,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:18,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:26,087 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:33,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:41,088 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:48,099 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:54:48,100 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:54:48,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:54:56,089 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:03,588 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:11,089 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:18,589 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:26,089 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:33,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:41,089 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:48,102 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:55:48,103 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:55:48,589 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:55:56,089 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:03,589 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:11,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:18,589 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:26,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:33,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:41,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:48,108 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:56:48,109 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:56:48,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:56:56,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:03,591 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:11,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:18,591 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:26,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:33,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:41,091 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:48,108 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:57:48,108 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:57:48,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:57:56,091 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:03,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:11,090 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:18,590 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:26,091 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:33,591 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:41,091 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:48,081 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:58:48,081 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:58:48,592 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:58:56,093 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:03,592 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:11,093 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:18,593 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:26,093 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:33,594 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:41,093 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:48,083 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 15:59:48,084 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 15:59:48,593 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 15:59:56,094 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:03,593 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:11,094 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:18,594 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:26,095 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:33,596 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:41,095 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:48,116 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 16:00:48,116 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 16:00:48,595 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:00:56,095 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:03,595 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:11,096 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:18,595 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:26,095 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:33,596 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:41,096 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:48,124 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 16:01:48,125 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 16:01:48,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:01:56,097 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:03,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:11,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:18,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:26,097 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:33,598 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:41,097 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:48,131 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 16:02:48,132 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 16:02:48,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:02:56,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:03,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:11,097 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:18,598 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:26,097 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:33,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:41,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:48,134 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 16:03:48,135 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 16:03:48,597 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:03:56,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:03,598 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:11,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:18,599 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:26,098 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:33,599 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:41,100 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:48,136 INFO [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - Writing result to /home/chesare9000/git/AOTidF_3_new/jiac-aot-ws19/logs/auction_0.txt
+2020-01-23 16:04:48,137 ERROR [n-bc96b4c337d.a-bc9142cf3c2.AuctionRunnerBean] - java.nio.file.NoSuchFileException: logs/auction_0.txt
+2020-01-23 16:04:48,599 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:04:56,100 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:05:03,599 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:05:11,100 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:05:18,600 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
+2020-01-23 16:05:26,101 ERROR [n-bc96b4c337d.JmxConnectorManager] - Unable to join multicast group 226.6.6.7
