@@ -23,3 +23,4 @@ tmp/**/*
 jiactng.log.*
 jiactng.log
 logs/**
+logs/

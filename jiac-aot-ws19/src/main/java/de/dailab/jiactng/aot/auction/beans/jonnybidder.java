@@ -2,14 +2,12 @@ package de.dailab.jiactng.aot.auction.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-import java.util.StringTokenizer;
 
 import org.sercho.masp.space.event.SpaceEvent;
 import org.sercho.masp.space.event.SpaceObserver;
@@ -42,60 +40,56 @@ import de.dailab.jiactng.aot.auction.onto.Wallet;
  * Very simple dummy implementation of bidder bean, for testing the
  * auctioneer and (maybe) as a starting point for students (or not).
  */
-public class BidderBeanCustom extends AbstractAgentBean {
+public class BidderBean extends AbstractAgentBean {
 
 	/*
 	 * CONFIGURATION
 	 */
-
+	
 	/** message group where to receive multicast messages from */
 	private String messageGroup;
-
+	
 	/** the ID of this bidder; has to be unique */
 	private String bidderId;
-
+	
 	/** used to identify agents belonging to the same group of students */
 	private String groupToken;
-
-	/** strategy of Bidder */
-	private String bidderStrategy;
 
 	/** this agent will always bid a random fraction of its remaining credits */
 	private Double biddingFraction;
 	
-	private ArrayList<Double> last10WBids;
-
-	private ArrayList<Double> last10Bids;
-	private Double previousWinningBid;
-	private Double initialWallet;
-	private int prevCallId =-1;
-	private double bidders =1;
+	
+	/** strategy of Bidder */
+	private String bidderStrategy;
 
 	
-	private int counterA =0;
-	private int counterB =0;
-	private int counterC =0;
-
+	private double offer = 0.0;
+	private double rich = 7500.00;
+	private double medium = 5000.00;
+	private double poor = 2000.00;
+	double cash;
+	double myOffer = 0.00;
+	
 	/*
 	 * STATE
 	 */
-
+	
 	/** to identify and ignore duplicate calls for registration */
 	private Set<Integer> seenAuctions = new HashSet<>();
-
+	
 	/** this bidder's wallet */
 	private Wallet wallet;
 
 	/** mapping auction types to auctioneer IDs */
 	private Map<StartAuction.Mode, Integer> auctioneerIds;
 	private Map<StartAuction.Mode, ICommunicationAddress> auctioneerAddresses;
-
+	
 	private Random random;
-
+	
 	/*
 	 * LIFECYCLE METHODS
 	 */
-
+	
 	@Override
 	public void doStart() throws Exception {
 		// join message group
@@ -106,11 +100,10 @@ public class BidderBeanCustom extends AbstractAgentBean {
 		random = new Random(bidderId.hashCode());
 		auctioneerIds = new HashMap<>();
 		auctioneerAddresses = new HashMap<>();
-
+		
 		biddingFraction = 0.01 + 0.01 * Math.random();
-		log.info(String.format("%s with strategy %s will bid fraction %.2f", bidderId, bidderStrategy, biddingFraction));
-//		System.out.println(bidderId + " "+ bidderStrategy);
-
+		log.info(String.format("%s will bid fraction %.2f", bidderId, biddingFraction));
+		
 		// attach memory observer for handling messages
 		memory.attach(new MessageObserver(), new JiacMessage());
 	}
@@ -118,9 +111,7 @@ public class BidderBeanCustom extends AbstractAgentBean {
 	@Override
 	public void execute() {
 		if (wallet == null) return;
-//		System.out.println(bidderId + " "+ bidderStrategy);
 		log.info(wallet);
-
 
 		// randomly offer some of the currently owned items for sale
 		StartAuction.Mode C = StartAuction.Mode.C;
@@ -140,11 +131,11 @@ public class BidderBeanCustom extends AbstractAgentBean {
 			}
 		}
 	}
-
+	
 	/*
 	 * MESSAGE HANDLING
 	 */
-
+	
 	/**
 	 * This memory observer will be triggered whenever a JIAC message arrives.
 	 * We will then reply with an offer.
@@ -159,30 +150,29 @@ public class BidderBeanCustom extends AbstractAgentBean {
 			if (event instanceof WriteCallEvent) {
 				// we know it's a message due to the template, but we have to check the content
 				JiacMessage message = (JiacMessage) ((WriteCallEvent) event).getObject();
-//				log.info("Received " + message.getPayload());
-
+				log.info("Received " + message.getPayload());
+				
 				// META AUCTIONEER
-
+				
 				if (message.getPayload() instanceof StartAuctions &&
 						seenAuctions.add(((StartAuctions) message.getPayload()).getAuctionsId())) {
-
+					
 					// send register
 					send(new Register(bidderId, groupToken), message.getSender());
 					// XXX TEST WITH FAULTY MESSAGES
 //					send(new Register(bidderId, groupToken), message.getSender());
 				}
-
+				
 				if (message.getPayload() instanceof InitializeBidder) {
-					InitializeBidder initBidder = (InitializeBidder) message.getPayload();
-					// get wallet, inspect items (optional)
-					if(bidderId.equalsIgnoreCase(initBidder.getWallet().getBidderId())) {
-						wallet = initBidder.getWallet();
-						log.info(wallet);
-					}else{
-						bidders=bidders + 1;
-						return;
-						}
-					}
+			          InitializeBidder initBidder = (InitializeBidder) message.getPayload();
+			          // get wallet, inspect items (optional)
+			          if(bidderId.equalsIgnoreCase(initBidder.getWallet().getBidderId())) {
+			            wallet = initBidder.getWallet();
+			            log.info(wallet);
+			          }else{
+			            return;
+			            }
+			          }
 
 				if (message.getPayload() instanceof EndAuction) {
 					EndAuction endMsg = (EndAuction) message.getPayload();
@@ -192,33 +182,28 @@ public class BidderBeanCustom extends AbstractAgentBean {
 						log.info("WE LOST. :-(");
 					}
 					log.info("Winner's wallet: " + endMsg.getWallet());
-					System.out.println("counters from Bidder Bean");
-					System.out.println(counterA );
-					System.out.println(counterB);
-					System.out.println(counterC );
-
 					auctioneerIds.clear();
 					auctioneerAddresses.clear();
 					wallet = null;
 				}
 
 				// AUCTIONEERS A, B, C
-
+				
 				if (message.getPayload() instanceof StartAuction) {
 					StartAuction startAuction = (StartAuction) message.getPayload();
 					// remember auctioneer ID and address
 					auctioneerIds.put(startAuction.getMode(), startAuction.getAuctioneerId());
 					auctioneerAddresses.put(startAuction.getMode(), message.getSender());
 				}
-
+				
 				if (message.getPayload() instanceof CallForBids) {
 					CallForBids req = (CallForBids) message.getPayload();
-					double offer = strategy(bidderStrategy,req,wallet);
+					double offer = strategy(bidderStrategy,req);
 					if(offer != -1) {
 						send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), offer), message.getSender());
 					}
 				}
-
+				
 				if (message.getPayload() instanceof InformBuy) {
 					InformBuy inform = (InformBuy) message.getPayload();
 					if (inform.getType() == BuyType.WON) {
@@ -228,7 +213,7 @@ public class BidderBeanCustom extends AbstractAgentBean {
 						}
 					}
 				}
-
+				
 				if (message.getPayload() instanceof InformSell) {
 					InformSell inform = (InformSell) message.getPayload();
 					if (inform.getType() == InformSell.SellType.SOLD) {
@@ -238,183 +223,89 @@ public class BidderBeanCustom extends AbstractAgentBean {
 						}
 					}
 				}
-
+								
 				// once handled, the message should be removed from memory
 				memory.remove(message);
 			}
-		}
+		}		
 	}
-
+	
 	/*
 	 * HELPER METHODS
 	 */
-
+	
 	private void send(IFact payload, ICommunicationAddress receiver) {
-//		log.info(String.format("Sending %s to %s", payload, receiver));
+		log.info(String.format("Sending %s to %s", payload, receiver));
 		JiacMessage msg = new JiacMessage(payload);
 		IActionDescription sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
 		invoke(sendAction, new Serializable[] {msg, receiver});
 	}
-	private boolean isFound( CallForBids req, String Item) {
-		return req.getBundle().toString().indexOf(Item) !=-1? true: false;
-	}
 	
-	private String getBelowZero(Wallet wallet){
-		String[] parts = wallet.toString().split("\\{"); 
-		String part2 = parts[1]; // 
-		parts = part2.split("\\}"); 
-		part2 = parts[0]; 
-		StringTokenizer tokenizer = new StringTokenizer(part2, ",");
-        while (tokenizer.hasMoreTokens()) {
-	        StringTokenizer tokenizer2 = new StringTokenizer(tokenizer.nextToken(), "=");
-	        if(tokenizer2.hasMoreTokens()) {
-		        String item = tokenizer2.nextToken();
-		        String value = tokenizer2.nextToken();
-		        if(Integer.parseInt(value)<0) {
-		        	return item;
-//		        	System.out.println(item);
-		        }
-	        }
-        } 
-        return "";
-
-	}
 	
-	private String getMax(Wallet wallet){
-		int max=0;
-		String[] parts = wallet.toString().split("\\{"); 
-		String part2 = parts[1]; // 
-		parts = part2.split("\\}"); 
-		part2 = parts[0]; 
-		StringTokenizer tokenizer = new StringTokenizer(part2, ",");
-        while (tokenizer.hasMoreTokens()) {
-	        StringTokenizer tokenizer2 = new StringTokenizer(tokenizer.nextToken(), "=");
-	        if(tokenizer2.hasMoreTokens()) {
-		        String item = tokenizer2.nextToken();
-		        String value = tokenizer2.nextToken();
-		        if(Integer.parseInt(value)>max) {
-		        	max = Integer.parseInt(value);
-		        	return item;
-//		        	System.out.println(item);
-		        }
-	        }
-        } 
-        return "";
-
-	}
-	
-	private String getZero(Wallet wallet){
-		String[] parts = wallet.toString().split("\\{"); 
-		String part2 = parts[1]; // 
-		parts = part2.split("\\}"); 
-		part2 = parts[0]; 
-		StringTokenizer tokenizer = new StringTokenizer(part2, ",");
-        while (tokenizer.hasMoreTokens()) {
-	        StringTokenizer tokenizer2 = new StringTokenizer(tokenizer.nextToken(), "=");
-	        if(tokenizer2.hasMoreTokens()) {
-		        String item = tokenizer2.nextToken();
-		        String value = tokenizer2.nextToken();
-		        if(Integer.parseInt(value)==0) {
-		        	return item;
-//		        	System.out.println(item);
-		        }
-	        }
-        } 
-        return "";
-
-	}
-	
-	private double getMedian(){
-	    Collections.sort(last10Bids);
-
-	    double middle = last10Bids.size()/2;
-	        if (last10Bids.size()%2 == 1) {
-	        	middle = (last10Bids.get(last10Bids.size()/2) +last10Bids.get((last10Bids.size()/2)-1) )/2;
-	        } else {
-	            middle = last10Bids.get(last10Bids.size() / 2);
-	        }
-	      return middle;
-	}
-	
-	private double calculateAverage() {
-		  Double sum = 0.0;
-		  if(!last10Bids.isEmpty()) {
-		    for (Double mark : last10Bids) {
-		        sum += mark;
-		    }
-		    return sum.doubleValue() / last10Bids.size();
-		  }
-		  return sum;
-		}
-
-	private double strategy(String bidderStrategy, CallForBids req,Wallet wallet) {
+	private double strategy(String bidderStrategy, CallForBids req) {
 		double bid = -1;
-		if(bidderStrategy.equalsIgnoreCase("random")) {
+		cash = wallet.getCredits();
+		if(cash < req.getMinOffer())
+			return bid;
+		if(bidderStrategy== "random") {
+
 			if (Math.random() > 0.3) {
 				if (req.getMode() == CfBMode.BUY) {
-					bid = wallet.getCredits() * biddingFraction;
-//					System.out.println("Random " + bid);
-
+					bid = cash * biddingFraction;
+					log.info(wallet);
 				} else {
+					if(!wallet.contains(req.getBundle()))
+						return bid;
 					bid = req.getMinOffer();
-				}
+				}						
 			}
+			
+		}else if (bidderStrategy=="jonny") {
+			
+			cash = wallet.getCredits();
 
-		}else {
-			if (req.getMode() == CfBMode.BUY) {
-//				bid = wallet.getCredits() * biddingFraction+ (0.1* wallet.getCredits());
-
-				if (req.getAuctioneerId()==1) {
-					counterA++;
-//					bid = wallet.getValue() * 0.1*((bidders-1)/bidders);
-
-					if(!wallet.contains(req.getBundle())){
-//						boolean isFound = req.getBundle().toString().indexOf("F") !=-1? true: false;
-						if(isFound(req, getBelowZero(wallet))) {
-//							bid = (bid*0.2)+bid;
-							bid = 0.07 *wallet.getCredits()*((bidders-1)/bidders);
-						} else if(isFound(req, getZero(wallet))) {
-							bid = 0.04 *wallet.getCredits()*((bidders-1)/bidders);
+				if (req.getMode() == CfBMode.BUY) {
+						// determine offer and send unicast-reply to sender
+						if(cash >= rich) {
+							offer = cash * 0.10;
+						}else if (cash < rich && cash >= medium) {
+							offer = cash * 0.05;
+						}else if (cash > 100 && cash <= poor){
+							offer = cash * 0.01;
+						}else {
+							return bid;
 						}
-						else {
-							bid = 0.015 *wallet.getCredits()*((bidders-1)/bidders);
-							
-						}
-					}
-//					req.getMinOffer()*((bidders-1)/bidders);
-//					bid = wallet.getCredits() * 0.8;
-				}else{
-//					System.out.println(req.getMinOffer()*((bidders-1)/bidders));
-					counterC++;
-					//bid = wallet.getCredits() * biddingFraction+ (0.1* wallet.getCredits());
-					if(!wallet.contains(req.getBundle())){
-//						boolean isFound = req.getBundle().toString().indexOf("F") !=-1? true: false;
-						if(isFound(req, getBelowZero(wallet))) {
-//							bid = (bid*0.2)+bid;
-							bid = 0.07 *wallet.getCredits();
-						} else if(isFound(req, getZero(wallet))) {
-							bid = 0.04 *wallet.getCredits();
-						}
-						else {
-							bid = 0.015 *wallet.getCredits();
-							
-						}
-					}
+						bid = offer;
+						
+						
 				}
-//				System.out.println("Simple " + bid);
-
-			}else {
-				counterB++;
-//				System.out.println(counterB + " " + req.getAuctioneerId());
-				if(isFound(req, "A") || isFound(req, "B")) {
-					bid = req.getMinOffer();
-				}else if(isFound(req, "C") || isFound(req, "D")){
-					bid = req.getMinOffer() + 0.02*req.getMinOffer();
-				}
+				//SELL SELL SELL
 				else {
-					bid = req.getMinOffer() + 0.04*req.getMinOffer();
-
-				}
+					if(!wallet.contains(req.getBundle()))
+						return bid;
+					
+						double min = req.getMinOffer();
+						if(cash < min)
+							return bid;
+						
+						if(cash >= rich) {
+							myOffer = min * 0.01;
+						}else if (cash < rich && cash >= medium) {
+							myOffer = min * 0.05;
+						}else {
+							myOffer = min * 0.10;
+						}
+						bid = myOffer;
+					}
+				
+		}
+		else {
+			if (req.getMode() == CfBMode.BUY) {
+				bid = wallet.getCredits() * biddingFraction+ (0.1* wallet.getCredits());				
+			}else {
+				if(!wallet.contains(req.getBundle()))
+					return bid;
+				bid = req.getMinOffer();
 			}
 		}
 		return bid;
@@ -424,20 +315,21 @@ public class BidderBeanCustom extends AbstractAgentBean {
 	 * GETTERS AND SETTERS
 	 */
 
-	public void setBidderId(String bidderId) {
-		this.bidderId = bidderId;
-	}
-
-	public void setGroupToken(String groupToken) {
-		this.groupToken = groupToken;
-	}
-
 	public void setBidderStrategy(String bidderStrategy) {
 		this.bidderStrategy = bidderStrategy;
 	}
-
+	
+	public void setBidderId(String bidderId) {
+		this.bidderId = bidderId;
+	}
+	
+	public void setGroupToken(String groupToken) {
+		this.groupToken = groupToken;
+	}
+	
 	public void setMessageGroup(String messageGroup) {
 		this.messageGroup = messageGroup;
 	}
 
 }
+
