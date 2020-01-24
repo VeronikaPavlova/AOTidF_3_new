@@ -1,4 +1,4 @@
-ackage de.dailab.jiactng.aot.auction.beans;
+package de.dailab.jiactng.aot.auction.beans;
 
 import java.util.Comparator;
 import java.util.HashMap;
