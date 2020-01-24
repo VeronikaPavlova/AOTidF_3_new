@@ -1,0 +1,25 @@
+/target/
+*.classpath
+*.settings
+*.project
+
+# eclipse project file
+.settings/
+.classpath
+.project
+/.classpath
+/*.project
+/.settings
+
+ 
+.metadata
+tmp/
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+jiactng.log.*
+jiactng.log
+logs/**
