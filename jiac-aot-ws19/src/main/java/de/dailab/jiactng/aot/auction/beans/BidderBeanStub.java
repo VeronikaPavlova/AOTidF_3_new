@@ -16,7 +16,6 @@ import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
 import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
-import de.dailab.jiactng.aot.auction.beans.BidderBean.MessageObserver;
 import de.dailab.jiactng.aot.auction.onto.CallForBids;
 import de.dailab.jiactng.aot.auction.onto.EndAuction;
 import de.dailab.jiactng.aot.auction.onto.InformBuy;

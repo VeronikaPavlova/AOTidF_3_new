@@ -58,6 +58,18 @@ public class BidderBean extends AbstractAgentBean {
 	/** this agent will always bid a random fraction of its remaining credits */
 	private Double biddingFraction;
 	
+	
+	/** strategy of Bidder */
+	private String bidderStrategy;
+
+	
+	private double offer = 0.0;
+	private double rich = 7500.00;
+	private double medium = 5000.00;
+	private double poor = 2000.00;
+	double cash;
+	double myOffer = 0.00;
+	
 	/*
 	 * STATE
 	 */
@@ -152,10 +164,15 @@ public class BidderBean extends AbstractAgentBean {
 				}
 				
 				if (message.getPayload() instanceof InitializeBidder) {
-					InitializeBidder initBidder = (InitializeBidder) message.getPayload();
-					// get wallet, inspect items (optional)
-					wallet = initBidder.getWallet();
-				}
+			          InitializeBidder initBidder = (InitializeBidder) message.getPayload();
+			          // get wallet, inspect items (optional)
+			          if(bidderId.equalsIgnoreCase(initBidder.getWallet().getBidderId())) {
+			            wallet = initBidder.getWallet();
+			            log.info(wallet);
+			          }else{
+			            return;
+			            }
+			          }
 
 				if (message.getPayload() instanceof EndAuction) {
 					EndAuction endMsg = (EndAuction) message.getPayload();
@@ -181,20 +198,9 @@ public class BidderBean extends AbstractAgentBean {
 				
 				if (message.getPayload() instanceof CallForBids) {
 					CallForBids req = (CallForBids) message.getPayload();
-					if (Math.random() > 0.3) {
-						if (req.getMode() == CfBMode.BUY) {
-							// determine offer and send unicast-reply to sender
-							Double offer = wallet.getCredits() * biddingFraction;
-							send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), offer), message.getSender());
-							// XXX TEST WITH FAULTY MESSAGES
-//							send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), null), message.getSender());
-						} else {
-							if (wallet.contains(req.getBundle())) {
-								send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), req.getMinOffer()), message.getSender());
-								// XXX TEST WITH FAULTY MESSAGES
-//								send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), null), message.getSender());
-							}
-						}						
+					double offer = strategy(bidderStrategy,req);
+					if(offer != -1) {
+						send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), offer), message.getSender());
 					}
 				}
 				
@@ -234,11 +240,87 @@ public class BidderBean extends AbstractAgentBean {
 		IActionDescription sendAction = retrieveAction(ICommunicationBean.ACTION_SEND);
 		invoke(sendAction, new Serializable[] {msg, receiver});
 	}
+	
+	
+	private double strategy(String bidderStrategy, CallForBids req) {
+		double bid = -1;
+		cash = wallet.getCredits();
+		if(cash < req.getMinOffer())
+			return bid;
+		if(bidderStrategy== "random") {
+			log.info(String.format("RADNOM BID strat"));
+
+			if (Math.random() > 0.3) {
+				if (req.getMode() == CfBMode.BUY) {
+					bid = cash * biddingFraction;
+					log.info(wallet);
+				} else {
+					if(!wallet.contains(req.getBundle()))
+						return bid;
+					bid = req.getMinOffer();
+				}						
+			}
+			
+		}else if (bidderStrategy=="jonny") {
+			log.info(String.format("RADNOM BID strat"));
+			
+			cash = wallet.getCredits();
+
+				if (req.getMode() == CfBMode.BUY) {
+						// determine offer and send unicast-reply to sender
+						if(cash >= rich) {
+							offer = cash * 0.10;
+						}else if (cash < rich && cash >= medium) {
+							offer = cash * 0.05;
+						}else if (cash > 100 && cash <= poor){
+							offer = cash * 0.01;
+						}else {
+							return bid;
+						}
+						bid = offer;
+						
+						
+				}
+				//SELL SELL SELL
+				else {
+					if(!wallet.contains(req.getBundle()))
+						return bid;
+					
+						double min = req.getMinOffer();
+						if(cash < min)
+							return bid;
+						
+						if(cash >= rich) {
+							myOffer = min * 0.01;
+						}else if (cash < rich && cash >= medium) {
+							myOffer = min * 0.05;
+						}else {
+							myOffer = min * 0.10;
+						}
+						bid = myOffer;
+					}
+				
+		}
+		else {
+			if (req.getMode() == CfBMode.BUY) {
+				bid = wallet.getCredits() * biddingFraction+ (0.1* wallet.getCredits());				
+			}else {
+				if(!wallet.contains(req.getBundle()))
+					return bid;
+				bid = req.getMinOffer();
+			}
+		}
+		return bid;
+	}
 
 	/*
 	 * GETTERS AND SETTERS
 	 */
 
+	public void setBidderStrategy(String bidderStrategy) {
+		this.bidderStrategy = bidderStrategy;
+	}
+	
 	public void setBidderId(String bidderId) {
 		this.bidderId = bidderId;
 	}
