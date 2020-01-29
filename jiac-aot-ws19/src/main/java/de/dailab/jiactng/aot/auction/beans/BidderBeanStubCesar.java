@@ -85,7 +85,7 @@ import de.dailab.jiactng.aot.auction.onto.InformBuy.BuyType;
  * to keep the agent's `Wallet` in synch between the different roles, e.g.
  * using the agent's memory, as seen for the auctioneer beans.
  */
-public class BidderBeanStub extends AbstractAgentBean
+public class BidderBeanStubCesar extends AbstractAgentBean
 {
 
 	// Hashmaps
