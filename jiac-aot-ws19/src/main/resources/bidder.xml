@@ -18,30 +18,20 @@
 		</property>
 	</bean>
 
+	
 	<bean name="BidderAgent" parent="SimpleAgent" scope="prototype">
 		<property name="agentBeans">
 			<list>
-				<bean name="BidderBean1" class="de.dailab.jiactng.aot.auction.beans.BidderBeanCustom" scope="prototype">
-					<property name="logLevel" value="INFO" />
+				<bean name="ExtremeBidderBean" class="de.dailab.jiactng.aot.auction.beans.ExtremeBidderBean" scope="prototype">
+					<property name="logLevel" value="INFO" /> 
 					<property name="executionInterval" value="2000" />
 					
-					<property name="bidderId" value="Bidder_1" />
-					<property name="bidderStrategy" value="simple" />
-					<property name="groupToken" value="UniqueGroupToken1" />
-					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
-					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
-				</bean>
-				<bean name="BidderBeanDummy3" class="de.dailab.jiactng.aot.auction.beans.BidderBean" scope="prototype">
-					<property name="logLevel" value="INFO" />
-					<property name="executionInterval" value="2000" />
-					
-					<property name="bidderId" value="DummyBidder_3" />
-					<property name="groupToken" value="DummyUniqueGroupToken3" />
+					<property name="bidderId" value="BidderAgent" />
+					<property name="groupToken" value="CesarGroupToken" />
 					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
 					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
 				</bean>
 			</list>
 		</property>
 	</bean>
-
 </beans>
