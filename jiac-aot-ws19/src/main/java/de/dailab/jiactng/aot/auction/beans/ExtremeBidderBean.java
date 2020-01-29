@@ -116,10 +116,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	@SuppressWarnings("serial")
 	class MessageObserver implements SpaceObserver<IFact> {
 		
-		private void handleCallForBuy(CallForBids cfb, IJiacMessage message) {
-			log.info("Bundle: " + cfb.getBundle());
-			
-		}
 		
 		@SuppressWarnings("rawtypes")
 		@Override
