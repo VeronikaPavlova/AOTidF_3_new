@@ -61,6 +61,11 @@ public class BidderBean extends AbstractAgentBean {
 	
 	/** strategy of Bidder */
 	private String bidderStrategy;
+	
+	private enum Fiscal {RICH, MEDIUM, POOR};
+	
+	private Fiscal fiscal;
+	
 
 	
 	private double offer = 0.0;
@@ -248,7 +253,6 @@ public class BidderBean extends AbstractAgentBean {
 		if(cash < req.getMinOffer())
 			return bid;
 		if(bidderStrategy== "random") {
-			log.info(String.format("RADNOM BID strat"));
 
 			if (Math.random() > 0.3) {
 				if (req.getMode() == CfBMode.BUY) {
@@ -262,42 +266,16 @@ public class BidderBean extends AbstractAgentBean {
 			}
 			
 		}else if (bidderStrategy=="jonny") {
-			log.info(String.format("RADNOM BID strat"));
 			
 			cash = wallet.getCredits();
 
 				if (req.getMode() == CfBMode.BUY) {
-						// determine offer and send unicast-reply to sender
-						if(cash >= rich) {
-							offer = cash * 0.10;
-						}else if (cash < rich && cash >= medium) {
-							offer = cash * 0.05;
-						}else if (cash > 100 && cash <= poor){
-							offer = cash * 0.01;
-						}else {
-							return bid;
-						}
-						bid = offer;
-						
+			
 						
 				}
 				//SELL SELL SELL
 				else {
-					if(!wallet.contains(req.getBundle()))
-						return bid;
 					
-						double min = req.getMinOffer();
-						if(cash < min)
-							return bid;
-						
-						if(cash >= rich) {
-							myOffer = min * 0.01;
-						}else if (cash < rich && cash >= medium) {
-							myOffer = min * 0.05;
-						}else {
-							myOffer = min * 0.10;
-						}
-						bid = myOffer;
 					}
 				
 		}
@@ -310,6 +288,47 @@ public class BidderBean extends AbstractAgentBean {
 				bid = req.getMinOffer();
 			}
 		}
+		return bid;
+	}
+
+	public Fiscal getFiscalMode() {
+		double currentCash = wallet.getCredits();
+		if(currentCash > rich) {
+			fiscal = Fiscal.RICH;
+		}else if (currentCash <= rich && currentCash > medium) {
+			fiscal = Fiscal.MEDIUM;
+		}else {
+			fiscal = Fiscal.POOR;
+		}
+		return fiscal;
+	}
+	
+	public double currentCashBid(Fiscal mode, CallForBids req) {
+		double bid;
+		if(req.getMode() == CfBMode.BUY) {
+			if(mode == fiscal.RICH){
+				bid = 0.0;
+			}else if(mode == fiscal.MEDIUM) {
+				bid = 0.0;
+				
+			}else {
+				bid = 0.0;
+				
+			}
+		}else {
+			if(mode == fiscal.RICH){
+				bid = 0.0;
+
+			}else if(mode == fiscal.MEDIUM) {
+				bid = 0.0;
+				
+			}else {
+				bid = 0.0;
+				
+			}
+		}
+		
+		
 		return bid;
 	}
 
@@ -334,3 +353,37 @@ public class BidderBean extends AbstractAgentBean {
 	}
 
 }
+
+
+
+/*
+			// determine offer and send unicast-reply to sender
+						if(cash >= rich) {
+							offer = cash * 0.10;
+						}else if (cash < rich && cash >= medium) {
+							offer = cash * 0.05;
+						}else if (cash > 50 && cash <= poor){
+							offer = cash * 0.01;
+						}else {
+							return bid;
+						}
+						bid = offer;
+						
+						
+						if(!wallet.contains(req.getBundle()))
+						return bid;
+					
+						double min = req.getMinOffer();
+						if(cash < min)
+							return bid = -1;
+						
+						if(cash >= rich) {
+							myOffer = min * 0.01;
+						}else if (cash < rich && cash >= medium) {
+							myOffer = min * 0.05;
+						}else {
+							myOffer = min * 0.10;
+						}
+						bid = myOffer;
+						
+*/
