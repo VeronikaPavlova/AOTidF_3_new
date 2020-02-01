@@ -26,8 +26,17 @@
 					<property name="logLevel" value="INFO" /> 
 					<property name="executionInterval" value="2000" />
 					
-					<property name="bidderId" value="BidderAgent" />
-					<property name="groupToken" value="CesarGroupToken" />
+					<property name="bidderId" value="Group5BidderAgent" />
+					<property name="groupToken" value="Group5GroupToken" />
+					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
+					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
+				</bean>
+				<bean name="FakeBidderBean" class="de.dailab.jiactng.aot.auction.beans.BidderBean" scope="prototype">
+					<property name="logLevel" value="INFO" /> 
+					<property name="executionInterval" value="2000" />
+					
+					<property name="bidderId" value="Group5FakeBidderAgent" />
+					<property name="groupToken" value="FakeGroup5GroupToken" />
 					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
 					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
 				</bean>

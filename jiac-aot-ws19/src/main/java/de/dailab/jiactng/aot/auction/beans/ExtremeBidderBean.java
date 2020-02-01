@@ -1,10 +1,7 @@
 package de.dailab.jiactng.aot.auction.beans;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import org.sercho.masp.space.event.SpaceEvent;
 import org.sercho.masp.space.event.SpaceObserver;
@@ -20,15 +17,20 @@ import de.dailab.jiactng.agentcore.comm.message.IJiacMessage;
 import de.dailab.jiactng.agentcore.comm.message.JiacMessage;
 import de.dailab.jiactng.agentcore.knowledge.IFact;
 import de.dailab.jiactng.agentcore.ontology.IActionDescription;
+import de.dailab.jiactng.aot.auction.onto.Bid;
 import de.dailab.jiactng.aot.auction.onto.CallForBids;
 import de.dailab.jiactng.aot.auction.onto.EndAuction;
 import de.dailab.jiactng.aot.auction.onto.InformBuy;
 import de.dailab.jiactng.aot.auction.onto.InformSell;
 import de.dailab.jiactng.aot.auction.onto.InitializeBidder;
+import de.dailab.jiactng.aot.auction.onto.Item;
 import de.dailab.jiactng.aot.auction.onto.Register;
+import de.dailab.jiactng.aot.auction.onto.Resource;
 import de.dailab.jiactng.aot.auction.onto.StartAuction;
+import de.dailab.jiactng.aot.auction.onto.StartAuction.Mode;
 import de.dailab.jiactng.aot.auction.onto.StartAuctions;
 import de.dailab.jiactng.aot.auction.onto.Wallet;
+import de.dailab.jiactng.aot.auction.onto.CallForBids.CfBMode;
 import de.dailab.jiactng.aot.auction.onto.InformBuy.BuyType;
 
 public class ExtremeBidderBean extends AbstractAgentBean {
@@ -51,6 +53,10 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 
 	/** to identify and ignore duplicate calls for registration */
 	private Set<Integer> seenAuctions = new HashSet<>();
+	
+    private Dictionary<String, Double> minB = new Hashtable<String, Double>(); 
+    private Dictionary<String, Double> maxB = new Hashtable<String, Double>(); 
+    private int biddersN = 1;
 		
 
 	@Override
@@ -116,6 +122,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	@SuppressWarnings("serial")
 	class MessageObserver implements SpaceObserver<IFact> {
 		
+		@SuppressWarnings("unused")
 		private void handleCallForBuy(CallForBids cfb, IJiacMessage message) {
 			log.info("Bundle: " + cfb.getBundle());
 			
@@ -144,9 +151,11 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				if (message.getPayload() instanceof InitializeBidder) {
 					InitializeBidder initBidder = (InitializeBidder) message.getPayload();
 					if(bidderId.equalsIgnoreCase(initBidder.getWallet().getBidderId())) {
-						// get wallet, inspect items (optional)
+						// get wallet, inspect items, init min,max for B Auctions
 						wallet = initBidder.getWallet();
+				        initalizeMinMaxOnB(minB,maxB);
 					} else {
+						biddersN = biddersN +1;
 						return;
 					}
 					
@@ -175,7 +184,13 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				}
 				
 				if (message.getPayload() instanceof CallForBids) {
-					CallForBids cfb = (CallForBids) message.getPayload();
+					// random code for testing
+//					CallForBids cfb = (CallForBids) message.getPayload();
+//					if(cfb.getAuctioneerId() ==2) {
+//						System.out.println("MinB " + getMinB(cfb.getBundle()));
+//						System.out.println("MaxB " + getMaxB(cfb.getBundle()));
+//					}
+//					tempRandomStrategy(cfb,wallet,message);
 				}
 				
 				if (message.getPayload() instanceof InformBuy) {
@@ -184,13 +199,14 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.add(inform.getBundle());
 							wallet.updateCredits(- inform.getPrice());
-							log.info("Nika won the bundle " + inform.getBundle());
+							log.info("Group5 won the bundle " + inform.getBundle());
 						}
 					}
 				}
 				
 				if (message.getPayload() instanceof InformSell) {
 					InformSell inform = (InformSell) message.getPayload();
+					updateMinMaxOnB(minB, maxB,inform.getBundle(),inform.getPrice());
 					if (inform.getType() == InformSell.SellType.SOLD) {
 						synchronized (wallet) {
 							wallet.remove(inform.getBundle());
@@ -204,7 +220,108 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			}
 		}		
 	}
-
-
 	
+	
+	/*********** Aris *****************/
+	
+	/**
+	 * 
+	 * @param bundleB
+	 * @return the bundle to suitable format for MinB  and MaxB entries
+	 */
+	@SuppressWarnings("unused")
+	private String getBundleString(List<Resource> bundleB) {
+		return bundleB.toString().replaceAll("[\\[\\](){},\\s]","");
+	}
+	
+	/**
+	 * 
+	 * @param MinB
+	 * @param MaxB
+	 * @param bundle
+	 * @param newPrice
+	 * 
+	 * Updates the max and min in the bundle list of Auction B
+	 */
+	private void updateMinMaxOnB(Dictionary<String, Double> MinB, Dictionary<String, Double> MaxB, List<Resource> bundle, double newPrice) {
+		String myBundle = getBundleString(bundle);
+		if(maxB.get(myBundle) != null || minB.get(myBundle)!=null) {
+			if(newPrice > maxB.get(myBundle)) {
+				maxB.put(myBundle,newPrice);
+			}else if(newPrice < maxB.get(myBundle)) {
+				minB.put(myBundle,newPrice);
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 * @param bundle
+	 * @return the min value of specific bundle in B Auction
+	 */
+	@SuppressWarnings("unused")
+	private double getMinB(List<Resource> bundle) {
+		return minB.get(getBundleString(bundle));
+	}
+	
+	/**
+	 * 
+	 * @param bundle
+	 * @return the max value of specific bundle in B Auction
+	 */
+	@SuppressWarnings("unused")
+	private double getMaxB(List<Resource> bundle) {
+		return maxB.get(getBundleString(bundle));
+	}
+	
+	/**
+	 * 
+	 * @param minB
+	 * @param maxB
+	 * 
+	 * Initialize the min and max list for Auction B 
+	 */
+	private void initalizeMinMaxOnB(Dictionary<String, Double> minB, Dictionary<String, Double> maxB) {
+		minB.put("AA",200.0); maxB.put("AA",200.0);
+		minB.put("AAA",300.0); maxB.put("AAA",300.0);
+		minB.put("AAAA",400.0); maxB.put("AAAA",400.0);
+		minB.put("AAB",200.0); maxB.put("AAB",200.0);
+		minB.put("AJK",200.0); maxB.put("AJK",200.0);
+		minB.put("BB",50.0); maxB.put("BB",50.0);
+		minB.put("CCCDDD",1200.0); maxB.put("CCCDDD",1200.0);
+		minB.put("CCDDAA",800.0); maxB.put("CCDDAA",800.0);
+		minB.put("CCDDBB",600.0); maxB.put("CCDDBB",600.0);
+		minB.put("EEEEEF",1600.0); maxB.put("EEEEEF",1600.0);
+		minB.put("EEEEF",800.0); maxB.put("EEEEF",800.0);
+		minB.put("EEEF",400.0); maxB.put("EEEF",400.0);
+		minB.put("EEF",200.0); maxB.put("EEF",200.0);
+		minB.put("FF",100.0); maxB.put("FF",100.0);
+		minB.put("FJK",300.0); maxB.put("FJK",300.0);
+		minB.put("ABCDEFJK",1400.0); maxB.put("ABCDEFJK",1400.0);		
+		
+	}
+	
+	/**
+	 * 
+	 * @param req
+	 * @param wallet
+	 * @param message
+	 * 
+	 * The random strategy to play for now.
+	 */
+	private void tempRandomStrategy(CallForBids req,Wallet wallet,JiacMessage message) {
+		double bid = -1;
+		if (Math.random() > 0.3) {
+			if (req.getMode() == CfBMode.BUY) {
+				bid = wallet.getCredits() * 0.02;
+				send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), bid), message.getSender());
+			} 
+			else {
+				if (wallet.contains(req.getBundle())) {
+					bid = req.getMinOffer();
+					send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), bid), message.getSender());
+				}
+			}
+		}
+	}
 }
