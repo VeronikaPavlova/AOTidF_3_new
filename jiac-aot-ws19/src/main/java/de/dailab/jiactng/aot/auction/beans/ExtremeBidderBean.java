@@ -57,6 +57,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
     private Dictionary<String, Double> minB = new Hashtable<String, Double>(); 
     private Dictionary<String, Double> maxB = new Hashtable<String, Double>(); 
     private int biddersN = 1;
+    
+    /** To store the number of times an element appear in a bundle*/
+	private Map<String,Integer> numberOfItems = new HashMap<String,Integer>();
 		
 
 	@Override
@@ -219,6 +222,36 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				memory.remove(message);
 			}
 		}		
+	}
+	
+	//This will Return a Map with the Number of times each letter appear on the bundle	
+	private int[] bundleItemsCounter(List<Resource> bundle) 
+	{
+		Integer A=0, B=0, C=0, D=0, E=0, F=0, G=0;
+		
+		for(Resource res: bundle) 
+		{	
+			switch (res) 
+			{
+				case A: A++; break;
+				case B: B++; break;
+				case C: C++; break;
+				case D: D++; break;
+				case E: E++; break;
+				case F: F++; break;
+				case G: G++; break;
+				default:     break;
+			}
+		}		
+		numberOfItems.put("A", A);
+		numberOfItems.put("B", B);
+		numberOfItems.put("C", C);
+		numberOfItems.put("D", D);
+		numberOfItems.put("E", E);
+		numberOfItems.put("F", F);
+		numberOfItems.put("G", G);
+		
+		return new int[] {A,B,C,D,E,F,G};
 	}
 	
 	
