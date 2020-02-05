@@ -122,7 +122,19 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 		if (wallet == null) return;
 		log.info(wallet);
 		
-		//TODO: Offer for Auctioneer C
+		/**
+		 * TODO Maybe play here around with the price we offer?
+		 * Also I commented it out but we could also check if selling all items after Auctioneer A closes is an improvement. 
+		 * But I sometimes got here an error, and I think that here you could have the mistake of negative Objects in Wallet
+		 * 
+		 * Just some Info:
+		 * 
+		 * currentRound variable counts the rounds, till A ends (so we have max. 150 rounds at currentRound == 150 Auctioneer A finished)
+		 * Then we have 20 more rounds where C is running (so till 170)
+		 * and 40 more rounds B is running (so 190)
+		 * 
+		 */
+		
 		
 		StartAuction.Mode C = StartAuction.Mode.C;
 		if (auctioneerIds.containsKey(C)) {
@@ -144,7 +156,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			if (! whatToOffer.isEmpty()) {
 				double price = msob.getPrice(whatToOffer);
 				send(new Offer(auctioneerIds.get(C), bidderId, whatToOffer, price), auctioneerAddresses.get(C));
-				log.info("Queen offer the bundle " + whatToOffer + " for the price " + price);
 				
 			}
 		}		
@@ -277,6 +288,12 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						roundEndB = roundEndA + 40;
 						roundEndC = roundEndA + 20;
 						
+						/**
+						 * TODO Here I save all the items Auctioneer A provide (in itemsofA). 
+						 * Maybe we could check in the end if we can create some specific bundles depending of the 
+						 * items A will still sell. Maybe could also variate the probability on how much we the items from A want if we could make 
+						 * a specific bundle
+						 */
 						//Save all provided items of A 
 						itemsofA = startAuction.getInitialItems();
 					}
@@ -292,7 +309,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 					//every 15 rounds update the boundaries of rich, medium, poor 
 					if(currentRound % 15 == 0) {
 						rich = wallet.getCredits() - (wallet.getCredits()/3);
-						medium = (double) wallet.getCredits() - 2 * (wallet.getCredits()/3);	
+						medium = wallet.getCredits() - 2 * (wallet.getCredits()/3);	
 					}
 					
 					if (cfb.getMode() == CfBMode.BUY) {
@@ -316,7 +333,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.add(inform.getBundle());
 							wallet.updateCredits(- inform.getPrice());
-							log.info("Queen won the bundle " + inform.getBundle());
 						}
 					}
 				}
@@ -328,11 +344,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 					if (inform.getType() == InformSell.SellType.SOLD) {
 						synchronized (wallet) {
 							wallet.remove(inform.getBundle());
-							wallet.updateCredits(inform.getPrice());
-
-							log.info("Queen sold the bundle " + inform.getBundle());
+							wallet.updateCredits(inform.getPrice());	
+							}
 						}
-					}
 				}
 								
 				// once handled, the message should be removed from memory
@@ -348,6 +362,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				maxBundle.put(item.getBundle(), item.getPrice());
 			}			
 		}
+		/**
+		 * TODO currenPrices and initItemPrices could be one function
+		 */
 		
 		/**
 		 * Compute the price of each item depending on the bundles from B 
@@ -491,6 +508,14 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				}
 				double value = entry.getValue();
 				
+				/**
+				 * TODO Play here around with the probabilities we give each bundle
+				 * when the diff > 0 we just decrease [100, 100 -1/16, 100 - 2/16 ...]
+				 * wenn diff = 0 the we have the probability 50
+				 * and below 0 we again decrease from 50 [..., 50, 50 - 1/16, 50 - 2/16...]
+				 * 
+				 * Play here around
+				 */
 				if(value == 0) {
 					probability = 50;
 				} else {
@@ -550,6 +575,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			for(Map.Entry<List<Resource>, Double> entry: sortedBundleDiff.entrySet()) {
 				double diff = entry.getValue();
 				List<Resource> bundle = entry.getKey();
+				//If Auction A ends, sell all bundles you have 
 				if(currentRound < 150) {
 					//if the bundle is preferable to be selled
 					if(bundle.equals(cfb.getBundle()) && diff > 0) {
@@ -557,20 +583,13 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						if(wallet.contains(cfb.getBundle())){
 							send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), cfb.getMinOffer()), message.getSender());
 
-							log.info("C running Queen would like to sell the bundle " + cfb.getBundle() + " for the price " + cfb.getMinOffer());
 						}
 					}
 				} else {
 					if(wallet.contains(cfb.getBundle())){
-						send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), cfb.getMinOffer()), message.getSender());
-
-						log.info("A done Queen would like to sell the bundle " + cfb.getBundle() + " for the price " + cfb.getMinOffer());
-					}
-
+						send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), cfb.getMinOffer()), message.getSender());					}
 				}
-			}
-			
-			
+			}			
 		}		
 
 		/**
@@ -587,8 +606,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 
 			if(offer != -1) {
 				send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), offer), message.getSender());
-				log.info("Queen would like to buy the bundle " + cfb.getBundle() + " for the price " + offer + " wallet " + wallet.getCredits());
-				
 			}
 			
 		}		
@@ -596,7 +613,8 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 
 		private double strategy(double probability, List<Resource> bundle) {
 			/**
-			 * TODO: Maybe difference between Auctioneer A and Auctioneer C while buying ?
+			 * TODO Maybe difference between Auctioneer A and Auctioneer C while buying ?
+			 * Also Play here around with the price and if we neccesarily need to have for different fiscal different prices?
 			 */
 
 			Fiscal fiscal = getFiscalMode();
@@ -722,6 +740,10 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	 * Updates the max and min in the bundle list of Auction B
 	 */
 	private void updateMinMaxOnB(List<Resource> bundle, double newPrice) {
+		/**
+		 * TODO At the moment we don't use the minBundle. But maybe if we know an itemPrice decrease we could use this information
+		 * to make it less desirable(?)
+		 */
 		if(maxBundle.get(bundle) != null || minBundle.get(bundle)!=null) {
 			if(newPrice > maxBundle.get(bundle)) {
 				maxBundle.put(bundle, newPrice);
