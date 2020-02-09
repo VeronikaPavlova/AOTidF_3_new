@@ -42,7 +42,7 @@ import de.dailab.jiactng.aot.auction.onto.Wallet;
  * Very simple dummy implementation of bidder bean, for testing the
  * auctioneer and (maybe) as a starting point for students (or not).
  */
-public class BidderBeanCustom extends AbstractAgentBean {
+public class BidderBeanAris extends AbstractAgentBean {
 
 	/*
 	 * CONFIGURATION
