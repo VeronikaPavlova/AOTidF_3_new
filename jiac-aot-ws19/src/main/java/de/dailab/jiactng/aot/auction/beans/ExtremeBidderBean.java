@@ -69,8 +69,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
     private Map< List<Resource>, Double> maxBundle = new HashMap<List<Resource>, Double>();
     
 
-	/** strategy of Bidder */
-	private String bidderStrategy;
 	
 	private enum Fiscal {RICH, MEDIUM, POOR};
 	
@@ -79,9 +77,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	private double rich = 7500.00;
 	private double medium = 5000.00;
 	
-	double cash;
-	
-	double myOffer = 0.00;
 	
 	//Probabilities of each item stored in a HashMap
 	private Map<Resource, Double> minitemPrices = new HashMap<Resource, Double>();
@@ -144,7 +139,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			for(Map.Entry<Resource, Double> entry: probabilities.entrySet()) {
 //				as long as Action A is running, just offer the not desirable items
 				if(currentRound < 150) {	
-					if(entry.getValue() < 0 && wallet.get(entry.getKey()) > 0) {
+					if(entry.getValue() <= 0 && wallet.get(entry.getKey()) > 0) {
 						whatToOffer.add(entry.getKey());
 					}
 				} else {
@@ -152,7 +147,17 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						whatToOffer.add(entry.getKey());
 					}
 				}
+
 			}
+			
+			if(wallet.get(Resource.J) >= 5 && !(whatToOffer.contains(Resource.J))) {
+				whatToOffer.add(Resource.J);
+			}
+
+			if(wallet.get(Resource.K) >= 5 && !(whatToOffer.contains(Resource.K))) {
+				whatToOffer.add(Resource.K);
+			}
+			
 			if (! whatToOffer.isEmpty()) {
 				double price = msob.getPrice(whatToOffer);
 				send(new Offer(auctioneerIds.get(C), bidderId, whatToOffer, price), auctioneerAddresses.get(C));
@@ -175,10 +180,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	 * Getter and Setter Methods
 	 * 
 	 */
-	
-	public void setBidderStrategy(String bidderStrategy) {
-		this.bidderStrategy = bidderStrategy;
-	}
 	
 	public void setMessageGroup(String messageGroup) {
 		this.messageGroup = messageGroup;
@@ -516,23 +517,8 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						break;
 					}
 				}
-				double value = entry.getValue();
 				
-				/**
-				 * TODO Play here around with the probabilities we give each bundle
-				 * when the diff > 0 we just decrease [100, 100 -1/16, 100 - 2/16 ...]
-				 * wenn diff = 0 the we have the probability 50
-				 * and below 0 we again decrease from 50 [..., 50, 50 - 1/16, 50 - 2/16...]
-				 * 
-				 * Play here around
-				 */
-				if ( value > 0){
-					probability = 100;
-				}else if(value == 0) {
-					probability = 50;
-				}	else if(value < 0) {
-					probability = 0;
-				}
+				probability -= diffprob;
 			}
 
 			probabilities.put(Resource.A, probA/countA);
@@ -663,7 +649,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				}
 			}
 			
-			price += price * 0.1;
+			price += price * 0.01;
 			
 			return price;
 		}
