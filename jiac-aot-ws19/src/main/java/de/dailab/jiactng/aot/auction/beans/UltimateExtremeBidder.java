@@ -42,7 +42,7 @@ import de.dailab.jiactng.aot.auction.onto.Wallet;
 import de.dailab.jiactng.aot.auction.onto.CallForBids.CfBMode;
 import de.dailab.jiactng.aot.auction.onto.InformBuy.BuyType;
 
-public class ExtremeBidderAris extends AbstractAgentBean {
+public class UltimateExtremeBidder extends AbstractAgentBean {
 		
 	//Wallet
 	private Wallet wallet;
@@ -69,8 +69,6 @@ public class ExtremeBidderAris extends AbstractAgentBean {
     private Map< List<Resource>, Double> maxBundle = new HashMap<List<Resource>, Double>();
     
 
-	/** strategy of Bidder */
-	private String bidderStrategy;
 	
 	private enum Fiscal {RICH, MEDIUM, POOR};
 	
@@ -79,9 +77,6 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 	private double rich = 7500.00;
 	private double medium = 5000.00;
 	
-	double cash;
-	
-	double myOffer = 0.00;
 	
 	//Probabilities of each item stored in a HashMap
 	private Map<Resource, Double> minitemPrices = new HashMap<Resource, Double>();
@@ -144,7 +139,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 			for(Map.Entry<Resource, Double> entry: probabilities.entrySet()) {
 //				as long as Action A is running, just offer the not desirable items
 				if(currentRound < 150) {	
-					if(entry.getValue() < 0 && wallet.get(entry.getKey()) > 0) {
+					if(entry.getValue() <= 0 && wallet.get(entry.getKey()) > 0) {
 						whatToOffer.add(entry.getKey());
 					}
 				} else {
@@ -152,14 +147,22 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 						whatToOffer.add(entry.getKey());
 					}
 				}
+
 			}
+			
+			if(wallet.get(Resource.J) >= 5 && !(whatToOffer.contains(Resource.J))) {
+				whatToOffer.add(Resource.J);
+			}
+
+			if(wallet.get(Resource.K) >= 5 && !(whatToOffer.contains(Resource.K))) {
+				whatToOffer.add(Resource.K);
+			}
+			
 			if (! whatToOffer.isEmpty()) {
-				
 				double price = msob.getPrice(whatToOffer);
-				price = price*0.1;
 				send(new Offer(auctioneerIds.get(C), bidderId, whatToOffer, price), auctioneerAddresses.get(C));
 				
-				log.info("Group5 offer bundle " + whatToOffer + " for the price " + price);
+				log.info("Queen offer bundle " + whatToOffer + " for the price " + price);
 			}
 		}		
 	}
@@ -177,10 +180,6 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 	 * Getter and Setter Methods
 	 * 
 	 */
-	
-	public void setBidderStrategy(String bidderStrategy) {
-		this.bidderStrategy = bidderStrategy;
-	}
 	
 	public void setMessageGroup(String messageGroup) {
 		this.messageGroup = messageGroup;
@@ -249,12 +248,12 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 				if (message.getPayload() instanceof EndAuction) {
 					EndAuction endMsg = (EndAuction) message.getPayload();
 					if (bidderId.equals(endMsg.getWinner())) {
-						log.info("Group5 WON!  :-)");
+						log.info("Queen WON!  :-)");
 					} else {
-						log.info("Group5 LOST. :-(");
+						log.info("WE LOST. :-(");
 					}
 					log.info("Winner's wallet: " + endMsg.getWallet());
-					log.info("Group5 wallet: " + wallet.getCredits());
+					log.info("Queen wallet: " + wallet.getCredits());
 					auctioneerIds.clear();
 					auctioneerAddresses.clear();
 					wallet = null;
@@ -306,7 +305,6 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 				if (message.getPayload() instanceof CallForBids) {
 					CallForBids cfb = (CallForBids) message.getPayload();
 
-//					System.out.println(cfb.getBundle() + " " +cfb.getMinOffer() + " " + maxBundle.get(cfb.getBundle()) + " " +  minBundle.get(cfb.getBundle()));
 					updateMinMaxOnB(cfb.getBundle(), cfb.getMinOffer());
 
 
@@ -341,7 +339,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.add(inform.getBundle());
 							wallet.updateCredits(- inform.getPrice());
-							log.info("Group5 buy the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
+							log.info("Queen buy the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
 						}
 					}
 				}
@@ -355,7 +353,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 							wallet.remove(inform.getBundle());
 							wallet.updateCredits(inform.getPrice());
 
-							log.info("Group5 sold the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
+							log.info("Queen sold the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
 							}
 						}
 				}
@@ -519,23 +517,8 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 						break;
 					}
 				}
-				double value = entry.getValue();
 				
-				/**
-				 * TODO Play here around with the probabilities we give each bundle
-				 * when the diff > 0 we just decrease [100, 100 -1/16, 100 - 2/16 ...]
-				 * wenn diff = 0 the we have the probability 50
-				 * and below 0 we again decrease from 50 [..., 50, 50 - 1/16, 50 - 2/16...]
-				 * 
-				 * Play here around
-				 */
-				if ( value > 0){
-					probability = 100;
-				}else if(value == 0) {
-					probability = 50;
-				}	else if(value < 0) {
-					probability = 0;
-				}
+				probability -= diffprob;
 			}
 
 			probabilities.put(Resource.A, probA/countA);
@@ -574,7 +557,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 				differences.put(item.getBundle(), bundlediff);
 			}
 			
-			//Sort the price differences from biggest to smalls
+			//Sort the price differences from biggest to smalles
 			Map<List<Resource>, Double> sortedByCount = differences.entrySet()
 	                .stream()
 	                .sorted((Map.Entry.<List<Resource>, Double>comparingByValue().reversed()))
@@ -593,10 +576,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 //				//If Auction A ends, sell all bundles you have 
 //				if(currentRound < 150) {
 //					//if the bundle is preferable to be selled
-//					System.out.println("Diff " + diff + " " + cfb.getMinOffer() + " " + maxBundle.get(cfb.getBundle())+ " " + minBundle.get(cfb.getBundle()));
-//
 //					if(bundle.equals(cfb.getBundle()) && diff > 0) {
-//
 //						//then check if we have the bundle and sell it
 //						if(wallet.contains(cfb.getBundle())){
 //							send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), cfb.getMinOffer()), message.getSender());
@@ -608,7 +588,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 //						send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), cfb.getMinOffer()), message.getSender());					}
 //				}
 //			}			
-//		}
+//		}		
 		
 		private void handleCallForSell(CallForBids cfb, JiacMessage message) {
 			if(wallet.contains(cfb.getBundle())){
@@ -644,7 +624,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 				}
 				send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), offer), message.getSender());
 
-				log.info("Group5 want buy " + cfb.getBundle() + " for the price " + offer);
+				log.info("Queen want buy " + cfb.getBundle() + " for the price " + offer);
 			}
 			
 		}		
@@ -688,7 +668,7 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 				}
 			}
 			
-			price += price * 0.1;
+//			price += price * 0.01;
 			
 			return price;
 		}
@@ -784,11 +764,11 @@ public class ExtremeBidderAris extends AbstractAgentBean {
 		 * to make it less desirable(?)
 		 */
 		if(maxBundle.get(bundle) != null || minBundle.get(bundle)!=null) {
-			if(newPrice > maxBundle.get(bundle)) {
+//			if(newPrice > maxBundle.get(bundle)) {
 				maxBundle.put(bundle, newPrice);
-			}else if(newPrice < maxBundle.get(bundle)) {
-				minBundle.put(bundle, newPrice);
-			}
+//			}else if(newPrice < maxBundle.get(bundle)) {
+//				minBundle.put(bundle, newPrice);
+//			}
 		}
 	}
 }

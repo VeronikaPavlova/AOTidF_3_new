@@ -19,6 +19,7 @@
 				<ref bean="BidderAgent4" />
 				<ref bean="BidderAgent5" />
 				<ref bean="BidderAgent6" />
+				<ref bean="BidderAgent7" />
 			</list>
 		</property>
 	</bean>
@@ -111,6 +112,21 @@
 					
 					<property name="bidderId" value="NikaBean" />
 					<property name="groupToken" value="NikaGroup5GroupToken" />
+					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
+					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean name="BidderAgent7" parent="SimpleAgent" scope="prototype">
+		<property name="agentBeans">
+			<list>
+				<bean name="UltimateBean" class="de.dailab.jiactng.aot.auction.beans.UltimateExtremeBidder" scope="prototype">
+					<property name="logLevel" value="INFO" /> 
+					<property name="executionInterval" value="2000" />
+					
+					<property name="bidderId" value="UltimateBean" />
+					<property name="groupToken" value="UltimateGroup5GroupToken" />
 					<property name="messageGroup" value="de.dailab.jiactng.aot.auction" />
 					<!-- XXX add more properties if needed, e.g. for fine-tuning strategies -->
 				</bean>
