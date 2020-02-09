@@ -214,6 +214,7 @@ public class BidderBeanCustom extends AbstractAgentBean {
 				if (message.getPayload() instanceof CallForBids) {
 					CallForBids req = (CallForBids) message.getPayload();
 					double offer = strategy(bidderStrategy,req,wallet);
+					
 					if(offer != -1) {
 						send(new Bid(req.getAuctioneerId(), bidderId, req.getCallId(), offer), message.getSender());
 					}

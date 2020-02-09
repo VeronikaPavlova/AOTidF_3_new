@@ -88,7 +88,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 	private Map<Resource, Double> probabilities = new HashMap<Resource, Double>();
 	
 	//Track rounds 
-	private int currentRound = 0;
+	private int currentRound;
 	private int roundEndA;
 	private int roundEndB;
 	private int roundEndC;
@@ -143,20 +143,21 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			
 			for(Map.Entry<Resource, Double> entry: probabilities.entrySet()) {
 //				as long as Action A is running, just offer the not desirable items
-//				if(currentRound < 150) {	
+				if(currentRound < 150) {	
 					if(entry.getValue() < 0 && wallet.get(entry.getKey()) > 0) {
 						whatToOffer.add(entry.getKey());
 					}
-//				} else {
-//					if(wallet.get(entry.getKey()) > 0) {
-//						whatToOffer.add(entry.getKey());
-//					}
-//				}
+				} else {
+					if(wallet.get(entry.getKey()) > 0) {
+						whatToOffer.add(entry.getKey());
+					}
+				}
 			}
 			if (! whatToOffer.isEmpty()) {
 				double price = msob.getPrice(whatToOffer);
 				send(new Offer(auctioneerIds.get(C), bidderId, whatToOffer, price), auctioneerAddresses.get(C));
 				
+				log.info("Queen offer bundle " + whatToOffer + " for the price " + price);
 			}
 		}		
 	}
@@ -228,9 +229,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 					// send register
 					send(new Register(bidderId, groupToken), message.getSender());
 				}
-				
 				//Inititialize our bidder and register to the META Auctioneer
 				if (message.getPayload() instanceof InitializeBidder) {
+					currentRound = 0;
 					InitializeBidder initBidder = (InitializeBidder) message.getPayload();
 					if(bidderId.equalsIgnoreCase(initBidder.getWallet().getBidderId())) {
 						
@@ -246,11 +247,12 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				if (message.getPayload() instanceof EndAuction) {
 					EndAuction endMsg = (EndAuction) message.getPayload();
 					if (bidderId.equals(endMsg.getWinner())) {
-						log.info("WE WON!  :-)");
+						log.info("Queen WON!  :-)");
 					} else {
 						log.info("WE LOST. :-(");
 					}
 					log.info("Winner's wallet: " + endMsg.getWallet());
+					log.info("Queen wallet: " + wallet.getCredits());
 					auctioneerIds.clear();
 					auctioneerAddresses.clear();
 					wallet = null;
@@ -304,7 +306,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 
 					updateMinMaxOnB(cfb.getBundle(), cfb.getMinOffer());
 
-					
+
 					
 					//every 15 rounds update the boundaries of rich, medium, poor 
 					if(currentRound % 15 == 0) {
@@ -323,7 +325,10 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						}
 					}
 					if(cfb.getMode() == CfBMode.SELL) {
-						handleCallForSell(cfb, message);
+						if(bundlesofB!= null && minitemPrices != null) {
+//							log.info("Item Prices " + minitemPrices);
+							handleCallForSell(cfb, message);
+						}
 					}
 				}
 				
@@ -333,6 +338,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.add(inform.getBundle());
 							wallet.updateCredits(- inform.getPrice());
+							log.info("Queen buy the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
 						}
 					}
 				}
@@ -344,7 +350,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 					if (inform.getType() == InformSell.SellType.SOLD) {
 						synchronized (wallet) {
 							wallet.remove(inform.getBundle());
-							wallet.updateCredits(inform.getPrice());	
+							wallet.updateCredits(inform.getPrice());
+
+							log.info("Queen sold the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
 							}
 						}
 				}
@@ -374,30 +382,32 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			
 			Map<Resource, Double> itemPrices = new HashMap<Resource, Double>();
 
-			for(Item item: initItemB) {
-				List<Resource> bundle = item.getBundle();
-				//Prices for A, B and F from the bundles AA, BB, FF
-				if(bundle.size() == 2) {
-					itemPrices.put(bundle.get(0), (maxBundle.get(bundle)/2));
-				}
-				//bundle CCCDDD get the price for C, D
-				if(bundle.size() == 6 && bundle.get(5) == Resource.D) {
-					//C
-					itemPrices.put(bundle.get(0), (maxBundle.get(bundle)/6));
-					itemPrices.put(bundle.get(3), (maxBundle.get(bundle)/6));
-				}
-				
-				//bundle EEF get the price for E
-				if(bundle.size() == 3 && bundle.get(2) == Resource.F) {
-					itemPrices.put(bundle.get(0), ( (maxBundle.get(bundle) - itemPrices.get(Resource.F)) /2));
-				}
-
-				//bundle AJK get the price for J, K
-				if(bundle.size() == 3 && bundle.get(2) == Resource.K) {
-					//J
-					itemPrices.put(bundle.get(1), ((maxBundle.get(bundle) - itemPrices.get(Resource.A)) /2));
-					//K
-					itemPrices.put(bundle.get(2), ((maxBundle.get(bundle) - itemPrices.get(Resource.A)) /2));
+			for(int i =0; i < 2; i++) {
+				for(Item item: initItemB) {
+					List<Resource> bundle = item.getBundle();
+						//Prices for A, B and F from the bundles AA, BB, FF
+						if(bundle.size() == 2) {
+							itemPrices.put(bundle.get(0), (maxBundle.get(bundle)/2));
+						}
+						//bundle CCCDDD get the price for C, D
+						if(bundle.size() == 6 && bundle.get(5) == Resource.D) {
+							//C
+							itemPrices.put(bundle.get(0), (maxBundle.get(bundle)/6));
+							itemPrices.put(bundle.get(3), (maxBundle.get(bundle)/6));
+						}
+						
+						//bundle EEF get the price for E
+						if(bundle.size() == 3 && bundle.get(2) == Resource.F && itemPrices.get(Resource.F) != null) {
+							itemPrices.put(bundle.get(0), ( (maxBundle.get(bundle) - itemPrices.get(Resource.F)) /2));
+						}
+		
+						//bundle AJK get the price for J, K
+						if(bundle.size() == 3 && bundle.get(2) == Resource.K && bundle.get(0) == Resource.A && itemPrices.get(Resource.A) != null) {
+							//J
+							itemPrices.put(bundle.get(1), ((maxBundle.get(bundle) - itemPrices.get(Resource.A)) /2));
+							//K
+							itemPrices.put(bundle.get(2), ((maxBundle.get(bundle) - itemPrices.get(Resource.A)) /2));
+					}
 				}
 			}
 			itemPrices.put(Resource.G, 0.0);
@@ -516,10 +526,12 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				 * 
 				 * Play here around
 				 */
-				if(value == 0) {
+				if ( value > 0){
+					probability = 100;
+				}else if(value == 0) {
 					probability = 50;
-				} else {
-					probability -= diffprob;
+				}	else if(value < 0) {
+					probability = 0;
 				}
 			}
 
@@ -606,6 +618,8 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 
 			if(offer != -1) {
 				send(new Bid(cfb.getAuctioneerId(), bidderId, cfb.getCallId(), offer), message.getSender());
+
+				log.info("Queen want buy " + cfb.getBundle() + " for the price " + offer);
 			}
 			
 		}		
@@ -621,7 +635,7 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			
 			double price = getPrice(bundle);
 			
-			price += price * 0.1;
+//			price += price * 0.1;
 			
 			if(probability > 20 && fiscal == Fiscal.RICH) {
 				return price;
@@ -632,7 +646,6 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 			} else {
 				return -1;
 			}
-			
 		}
 		
 		public double getPrice(List<Resource> bundle) {
@@ -650,8 +663,9 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 				}
 			}
 			
-			return price;
+			price += price * 0.1;
 			
+			return price;
 		}
 
 
@@ -745,11 +759,11 @@ public class ExtremeBidderBean extends AbstractAgentBean {
 		 * to make it less desirable(?)
 		 */
 		if(maxBundle.get(bundle) != null || minBundle.get(bundle)!=null) {
-			if(newPrice > maxBundle.get(bundle)) {
+//			if(newPrice > maxBundle.get(bundle)) {
 				maxBundle.put(bundle, newPrice);
-			}else if(newPrice < maxBundle.get(bundle)) {
-				minBundle.put(bundle, newPrice);
-			}
+//			}else if(newPrice < maxBundle.get(bundle)) {
+//				minBundle.put(bundle, newPrice);
+//			}
 		}
 	}
 }

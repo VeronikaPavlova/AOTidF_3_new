@@ -204,6 +204,7 @@ public class BidderBean extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.add(inform.getBundle());
 							wallet.updateCredits(- inform.getPrice());
+							log.info(bidderId + " buy ");
 						}
 					}
 				}
@@ -214,6 +215,8 @@ public class BidderBean extends AbstractAgentBean {
 						synchronized (wallet) {
 							wallet.remove(inform.getBundle());
 							wallet.updateCredits(inform.getPrice());
+
+							log.info(bidderId + " sold ");
 						}
 					}
 				}
