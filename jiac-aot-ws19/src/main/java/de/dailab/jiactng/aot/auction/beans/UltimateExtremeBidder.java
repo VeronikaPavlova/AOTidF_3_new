@@ -118,15 +118,10 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 		log.info(wallet);
 		
 		/**
-		 * TODO Maybe play here around with the price we offer?
-		 * Also I commented it out but we could also check if selling all items after Auctioneer A closes is an improvement. 
-		 * But I sometimes got here an error, and I think that here you could have the mistake of negative Objects in Wallet
-		 * 
-		 * Just some Info:
-		 * 
-		 * currentRound variable counts the rounds, till A ends (so we have max. 150 rounds at currentRound == 150 Auctioneer A finished)
-		 * Then we have 20 more rounds where C is running (so till 170)
-		 * and 40 more rounds B is running (so 190)
+		 *
+		 * currentRound variable counts the rounds, till A ends (max. 150 rounds at currentRound == 150 , then Auctioneer A will be finished)
+		 * Then we have 20 more rounds where C is running (so until 170 total rounds)
+		 * and 40 more for B (so 190 in total)
 		 * 
 		 */
 		
@@ -217,9 +212,9 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 		@SuppressWarnings("rawtypes")
 		@Override
 		public void notify(SpaceEvent<? extends IFact> event) {
-			// check the type of the event
+			// checking the type of the event
 			if (event instanceof WriteCallEvent) {
-				// we know it's a message due to the template, but we have to check the content
+				// we know it's a message due to the template, so we will here check the content
 				JiacMessage message = (JiacMessage) ((WriteCallEvent) event).getObject();
 				log.info("Received " + message.getPayload());
 				
@@ -291,12 +286,6 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 						roundEndB = roundEndA + 40;
 						roundEndC = roundEndA + 20;
 						
-						/**
-						 * TODO Here I save all the items Auctioneer A provide (in itemsofA). 
-						 * Maybe we could check in the end if we can create some specific bundles depending of the 
-						 * items A will still sell. Maybe could also variate the probability on how much we the items from A want if we could make 
-						 * a specific bundle
-						 */
 						//Save all provided items of A 
 						itemsofA = startAuction.getInitialItems();
 					}
@@ -306,10 +295,8 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 					CallForBids cfb = (CallForBids) message.getPayload();
 
 					updateMinMaxOnB(cfb.getBundle(), cfb.getMinOffer());
-
-
 					
-					//every 15 rounds update the boundaries of rich, medium, poor 
+					//every 15 rounds update the boundaries of rich, medium and poor 
 					if(currentRound % 15 == 0) {
 						rich = wallet.getCredits() - (wallet.getCredits()/3);
 						medium = wallet.getCredits() - 2 * (wallet.getCredits()/3);	
@@ -356,9 +343,8 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 							log.info("Queen sold the bundle " + inform.getBundle() + " for the price " + inform.getPrice());
 							}
 						}
-				}
-								
-				// once handled, the message should be removed from memory
+				}								
+				// once handled, the message will be removed from memory
 				memory.remove(message);
 			}
 		}
@@ -371,10 +357,6 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 				maxBundle.put(item.getBundle(), item.getPrice());
 			}			
 		}
-		/**
-		 * TODO currenPrices and initItemPrices could be one function
-		 */
-		
 		/**
 		 * Compute the price of each item depending on the bundles from B 
 		 * So that we can compute the best bundles independent if B Mode if Fixed or Random
@@ -467,7 +449,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 			
 			Map<List<Resource>, Double> sortedByCount = bundlePriceDifference(itemPrices);
 			
-			//bundle with most win has the probability 100 and with each bund
+			//bundle with most win has the probability 100
 			double probability = 100;
 			double diffprob = probability/16;
 			
@@ -557,7 +539,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 				differences.put(item.getBundle(), bundlediff);
 			}
 			
-			//Sort the price differences from biggest to smalles
+			//Sort the price differences from biggest to smallest
 			Map<List<Resource>, Double> sortedByCount = differences.entrySet()
 	                .stream()
 	                .sorted((Map.Entry.<List<Resource>, Double>comparingByValue().reversed()))
@@ -631,11 +613,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 
 
 		private double strategy(double probability, List<Resource> bundle) {
-			/**
-			 * TODO Maybe difference between Auctioneer A and Auctioneer C while buying ?
-			 * Also Play here around with the price and if we neccesarily need to have for different fiscal different prices?
-			 */
-
+			
 			Fiscal fiscal = getFiscalMode();
 			
 			double price = getPrice(bundle);
@@ -654,7 +632,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 		}
 		
 		public double getPrice(List<Resource> bundle) {
-			//depending on the curen bundle prices compute the current prices of each item new
+			//depending on the current bundle prices compute the current prices of each item new
 			Map<Resource, Double> currPrices = currItemPrice();
 			
 			Map<Resource, Integer> numberofItems = bundleItemsCounter(bundle);
@@ -711,7 +689,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 			return fiscal;
 		}
 	
-	//This will Return a Map with the Number of times each letter appear on the bundle	
+	    //This will Return a Map with the Number of times each letter appear on the bundle	
 		private Map<Resource, Integer> bundleItemsCounter(List<Resource> bundle) 
 		{
 			 /** To store the number of times an element appear in a bundle*/
@@ -759,10 +737,7 @@ public class UltimateExtremeBidder extends AbstractAgentBean {
 	 * Updates the max and min in the bundle list of Auction B
 	 */
 	private void updateMinMaxOnB(List<Resource> bundle, double newPrice) {
-		/**
-		 * TODO At the moment we don't use the minBundle. But maybe if we know an itemPrice decrease we could use this information
-		 * to make it less desirable(?)
-		 */
+		
 		if(maxBundle.get(bundle) != null || minBundle.get(bundle)!=null) {
 //			if(newPrice > maxBundle.get(bundle)) {
 				maxBundle.put(bundle, newPrice);
